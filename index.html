@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <!-- head element from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Iterative Design</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="section">
+        <h1>Prototyping a Roommate-Matching App</h1>
+        <p>In this project, we chose an emerging startup and designed their product’s interface. We ideated and designed all of our interfaces from scratch, without looking at any of the startup’s existing designs.</p>
+      </div>
+      <hr/>
+      <div class="section">
+        <div class="subsection">
+            <h2>01. Research</h2>
+            <h3>Selecting a Startup</h3>
+            <p>When thinking about which startup to select, we thought about the following criteria:</p>
+            <ul>
+            <li>We wanted to choose a company that was still in its starting stages and had not yet developed a fully fleshed-out product.</li>
+            <li>The startup’s product had to be centered around a digital interface.</li>
+            <li> The company had to have a clear purpose and view, so that there were clear goals we could develop solutions for in our interfaces. </li>
+            </ul>
+
+            <p>Keeping the above criteria in mind, we searched through startup accelerators such as <a href="https://www.ycombinator.com/">YCombinator </a>and <a href="https://www.techstars.com/portfolio">Techstars</a>. Ultimately we chose to develop an interface for a startup called Roomkast. As stated on their <a href="https://www.techstars.com/portfolio?name=Roomkast">Techstars profile</a>, “Roomkast is a profile-matching tool for people who see the value in co-sharing a place to live”: </p>
+
+            <div class="image-wrapper">
+                <img src="assets/roomcast_description.png">
+        </div>
+    </div>
+        <div class="subsection">
+            <h3>Deciding the Interface’s Platform</h3>
+            <p>We thought that the people who would most frequently use Roomkast were younger people who had just moved to a metropolitan area and were looking for a roommate to share an apartment or other living space with.</p>
+
+            <p>Given the popularity of dating apps amongst young people, we thought Roomkast users would feel the most familiar with a similar interface but centered around finding a roommate rather than a romantic partner.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="section">
+        <div class="subsection">
+            <h2>02. Ideating the Design </h2>
+            <p>For this project, we wanted to practice iterative prototyping. We began the design process by sketching out different possible layouts for our interface.</p>
+            <p>Each member of our team created a set of sketches detailing what we imagined the website to look like. We did so without any input from one another so we could generate a diversity of approaches to solving Roomkast’s goals.</p>
+          </div>
+    
+          <!-- CAROUSEL CODE TAKEN FROM BOOTSTRAP-->
+          <style>
+           .carousel {
+            padding: 2% 0;
+            align-self: center;
+            width: 100%;
+            height: fit-content;
+           }
+    
+           .carousel .image-wrapper{
+            position: static;
+            margin: auto;
+            padding: 2%;
+            width: 100%;
+           }
+
+           .carousel img {
+            position: static;
+            display: block;
+            width: 100%;
+           }
+
+           .carousel-item {
+              background: #f1f1f2;
+              color: black;
+            }
+
+           #sketchesCarousel .carousel-item{
+            height: 44rem;
+           }
+
+           #sketchesCarousel .image-wrapper{
+            height: 28rem;
+           }
+
+            #wireframesCarousel .carousel-item{
+                height: 32rem;
+            }
+
+            #carouselCritique .carousel-item{
+                height: 30rem;
+                padding: 2%;
+            }
+
+            /* carousel caption placement from https://scottdorman.blog/2019/03/02/bootstrap-carousel-caption-placement/ */
+            .caption-wrapper {
+              position: static;
+              height: 16rem;
+              background-color: #d5f0ff;
+            }
+
+            .carousel-caption {
+                position: static;
+                left: 0;
+                right: 0;
+                padding: 2% 4%;
+                height: 14rem;
+                overflow-y: auto;
+            }
+
+            .carousel p, .carousel li, .carousel b{
+                text-align: left;
+                font-size: 16px;
+            }
+    
+            .carousel h3{
+                margin-block-start: 0;
+            }
+          </style>
+          <div
+            id="sketchesCarousel"
+            class="carousel carousel-dark slide"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#sketchesCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-label="Slide 1"
+                aria-current="true"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#sketchesCarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+                class=""
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#sketchesCarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+                class=""
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#sketchesCarousel"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+                class=""
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="image-wrapper">
+                    <img src="./assets/sketches/sketches_1.svg" class="carousel-img" />
+                </div>
+                  <div class="caption-wrapper">
+                    <div class="carousel-caption">
+                        <b>Person 1</b>
+                        <p>The first member of our group focused on incorporating <b>apartment preference</b> into the roommate search.</p>
+                        <ul>
+                            <li> This person focused their solution on providing users the chance to find an apartment that they liked first.</li>
+                            <li>Then they could reach out to the individuals already renting that apartment who were looking for a roommate.</li>
+                            <li>Rather than the app generating a compatibility rating for potential roommates, users determine compatibility on their own using profile information and further contact off the app.</li>
+                        </ul> 
+                    </div>
+                  </div>  
+              </div>
+            <div class="carousel-item">
+                <div class="image-wrapper">
+                    <img src="./assets/sketches/sketches_2.svg" class="carousel-img" />
+                </div>
+                <div class="caption-wrapper">
+                    <div class="carousel-caption">
+                        <b>Person 2</b>
+                        <p>The second member of our group designed a <b>marketplace-like</b> app focused on discovering individuals by looking through a list of profiles.</p>
+                        <ul>
+                            <li>Profiles include relevant information, such as budget, living preferences, and references from previous roommates.</li>
+                            <li>Users could then connect with other users via an in-app messaging system.</li>
+                            <li>This design had no consideration for potential apartments, or whether there might be groups of people looking to find a roommate together.</li>
+                        </ul>
+                </div>
+                </div>  
+            </div>
+            <div class="carousel-item">
+                <div class="image-wrapper">
+                    <img src="./assets/sketches/sketches_3.svg" class="carousel-img" />
+                </div>
+                <div class="caption-wrapper"> 
+                    <div class="carousel-caption">
+                        <b>Person 3</b>
+                        <p>The third member of our group created an app that focused on <b>algorithmically determining compatibility</b> between users to recommend roommates.</p>
+                        <ul>
+                            <li>The app includes a survey that users are required to fill out before they can interact with others on the platform.</li>
+                            <li>Based on the survey, the app displays a list of matches that the user has a high chance of living well with.</li>
+                        </ul>
+                </div>
+                </div>
+            </div>
+              <div class="carousel-item">
+                <div class="image-wrapper">
+                    <img src="./assets/sketches/sketches_4.svg" class="carousel-img" />
+                </div>
+                <div class="caption-wrapper">
+                  <div class="carousel-caption">
+                    <b>Person 4</b>
+                    <p>The fourth member of our group created an app which focused on the ability to create both <b>individual</b> and <b>group profiles</b>.</p>
+                    <ul>
+                        <li>This solution addresses how a group of people who already know they want to live together can look for other people to fill out their group.</li>
+                        <li>For example, If there are three people who know they want to live together and are considering a four-bedroom apartment, they can enter Roomkast as a group seeking one more roommate.</li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#sketchesCarousel"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#sketchesCarousel"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- CAROUSEL CODE END , TAKEN FROM BOOTSTRAP-->    
+        </div>
+        <div class="subsection">
+    <h3>Combining our Designs into Wireframes</h3>
+        <!-- <p>Our sketches ended up representing diverse solutions to the startup’s goals.</p>
+        <ul>
+            <li>Some of us imagined the app would allow users to browse apartments, while others imagined users would browse profiles.</li>
+            <li>Another member imagined that a survey would give users a predefined list of compatible matches.</li>
+            <li>One member specifically designed an in-app messaging system that could be used to sort multiple conversations at once, rather than taking further contact off-platform</li>
+            <li>Only one of us considered that the ability to create group profiles was crucial, as people are often looking for roommates to fill out an existing group</li>
+        </ul> -->
+
+        <p>After reviewing our sketches, we discussed which designs most effectively solved Roomkast’s goals as a startup.</p>
+        <ul>
+            <li>We decided a profile-focused rather than apartment-focused app better solved the description of Roomkast as a “profile-matching tool".</li>
+            <li>We liked the survey idea to determine compatibility, but we felt that giving a predefined list of matches was too restrictive. We wanted users to be able to endlessly scroll through and discover profiles if they liked.</li>
+            <li>We agreed that being able to create group profiles and message via the app were important features.</li>
+        </ul>
+
+        <p>From our discussion, we combined our sketches to produce a final set of wireframes we would use to create our high-fidelity prototype.</p>
+
+        <!-- CAROUSEL CODE TAKEN FROM BOOTSTRAP-->
+        <div id="carouselWireframes" class="carousel carousel-dark slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselWireframes" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselWireframes" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselWireframes" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="image-wrapper">
+                    <img src="assets/wireframes/wireframes_1.svg" class="carousel-img" alt="Slide 1">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="image-wrapper">
+                    <img src="assets/wireframes/wireframes_2.svg" class="carousel-img" alt="Slide 2">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="image-wrapper">
+                    <img src="assets/wireframes/wireframes_3.svg" class="carousel-img" alt="Slide 3">
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselWireframes" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselWireframes" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+        <!-- CAROUSEL CODE END , TAKEN FROM BOOTSTRAP-->
+        </div>
+    
+    <hr />
+    <div class="section">
+        <div class="subsection">
+            <h2>03. Prototyping the Roomkast App</h2>
+            <p>Next, we designed a high-fidelity interactive prototype in Figma to represent how the product would actually look and feel. We then iteratively improved on our interface by incorporating feedback from a design critique. Finally, we conducted remote usability testing to evaluate how well our interface worked.</p>
+
+            <h3>Drafting the Initial Prototype</h3>
+
+            <p>Based on our combined wireframes, we made an initial prototype of the Roomkast app. We didn’t include all possible interactions or screens, but implemented enough to explore and test the key functionalities of the app.</p>
+
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);"
+            width="100%"
+            height="650" 
+            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FvinTFwwNoHv1nI5GIxQFoK%2FInitial-Roomkast-Mockup%3Fnode-id%3D0%253A1" 
+            allowfullscreen></iframe>
+        </div>
+        <div class="subsection">
+            <h3>Incorporating Feedback from Design Critique</h3>
+            <p>To help improve our prototype, we sought feedback from our peers and an industry professional via a design critique. Below, you can see how we incorporated feedback from the critique to revise our high-fidelity prototype.</p>
+
+            <!-- CAROUSEL CODE TAKEN FROM BOOTSTRAP-->
+            <div id="carouselCritique" class="carousel carousel-dark slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselCritique" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselCritique" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselCritique" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselCritique" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselCritique" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#carouselCritique" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    <button type="button" data-bs-target="#carouselCritique" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/critique_images/critique_1.svg" class="carousel-img" alt="Slide 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/critique_images/critique_2.svg" class="carousel-img" alt="Slide 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/critique_images/critique_3.svg" class="carousel-img" alt="Slide 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/critique_images/critique_4.svg" class="carousel-img" alt="Slide 4">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/critique_images/critique_5.svg" class="carousel-img" alt="Slide 5">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/critique_images/critique_6.svg" class="carousel-img" alt="Slide 6">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/critique_images/critique_7.svg" class="carousel-img" alt="Slide 7">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselCritique" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselCritique" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+                <!-- CAROUSEL CODE END , TAKEN FROM BOOTSTRAP-->
+                </div>
+    <div class="subsection">
+        <h3>Implementing Interaction Principles</h3>
+        <p>Both when creating the initial mockup and when revising the prototype, we carefully  considered the key principles of interaction, navigation, and hierarchy.</p>
+
+        <b>Interaction</b>
+        <ul>
+            <li>High-contrast button design makes it very clear which elements are interactable</li>
+            <li>Swiping on a conversation allows users pin a conversation, and blue pin icon shows feedback confirming conversation has been pinned</li>
+            <li>Bookmark icon turns blue when the profile is saved, showing profile has been successfully bookmarked (Note: this feature's interaction has not been flushed out in the prototype; this is something we plan to implement in the future)</li>
+            <li>On each profile, the “Message Now” button in the middle of the screen where it is easily accessible</li>
+            <li>Messages screen contains a dropdown menu that gives users different options for sorting conversation </li>
+        </ul>
+        <b>Navigation</b>
+        <ul>
+            <li>Left and right arrows, as well as “Next” buttons in the preferences survey allow users to easily review and change their responses</li>
+            <li>Besides the onboarding process, the navigation bar is always visible, so users can easily switch between different sections of the app. </li>
+            <li>A navigation bar that utilizes not only common icons and text labels to make it clear what each option will lead to. The currently selected navbar option is blue, so users always understand where they are.</li>
+            <li>Screens embedded deeper in the hierarchy, such as viewing a specific profile or conversation, have consistently styled “Back” buttons.</li>
+        </ul>
+        <b>Hierarchy</b>
+          <ul>
+            <li>Blue banners at the top of screens contain the name of current screen in large, bold tex</li>
+            <li>In the profile view, dividing lines and section headers logically separate profile information</li>
+            <li>Layout of elements creates a natural top-to-down reading flow, generally from more to less important information.</li>
+            <li>Screens embedded deeper in the hierarchy, such as viewing a specific profile or conversation, have consistently styled “Back” buttons.</li>
+          </ul>
+        <p>Here’s our final design file and revised prototype. Please try it out!</p>
+        <iframe 
+            style="border: 1px solid rgba(0, 0, 0, 0.1);" 
+            width="100%"
+            height="650" 
+            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FvinTFwwNoHv1nI5GIxQFoK%2FInitial-Roomkast-Mockup%3Fnode-id%3D0%253A1" 
+            allowfullscreen
+        ></iframe>
+        <iframe 
+            style="border: 1px solid rgba(0, 0, 0, 0.1);" 
+            width="100%" 
+            height="650" 
+            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F2QyauiqEDoUesYWrUto7Qt%2FFinal-Roomkast-Mockup%3Fnode-id%3D57%253A271%26scaling%3Dscale-down%26page-id%3D0%253A1%26starting-point-node-id%3D57%253A271" 
+            allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    <hr />
+      <div class="section">
+        <div class="subsection">
+            <h2>04. Remote Usability Testing</h2>
+            <p>To evaluate our interface, we conducted usability testing. User testing is when you have someone use the interface/product that you have created and give feedback and suggestions about your design. To accomplish this remotely, we used the platform <a href="usertesting.com">UserTesting.com</a>. We configured the test so that users would interact with the prototype on their phone. 
+            </p>
+        </div>
+        <div class="subsection">
+            <h3>Defining the Task</h3>
+            <p>We wanted to choose a task that would explore Roomkast’s primary functionality: to find someone compatible to live with. Eventually, we settled on a task that most real users of the app would accomplish: creating an account and messaging a potential roommate. 
+
+            In our testing instructions we made sure to carefully explain how to interact with the Figma prototype, as well as thoroughly explain the substeps involved in our overall task. </p>
+
+            <b>Testing Instructions</b>
+
+        <div class="quote-block"> 
+            <p>Specific steps to complete the task:</p>
+            <ol>
+            <li>Select a login method and create an individual profile. </li>
+            <li>Follow the prompts to create an account. </li>
+            <li>
+                Next, look through the potential housemate candidates – 
+                you can interact with the discovery page and look at their profiles. 
+            </li>
+            <li>
+                Before you check your messages, reach out to Amelia (a potential housemate) 
+                by sending her a message. 
+            </li>
+            <li>After you send your message to Amelia, pin her conversation in the messages tab.</li>
+            <li>Lastly, sort the conversations by compatibility.</li>
+            </ol>
+            <p>
+            Let's view the results!
+            </p>
+        </div>
+        
+        <p>We also came up with post-test questions that users would respond to after interacting with the prototype to gain further insight into our interface.</p>
+
+        <b>Post-Test Questions</b>
+        <div class="quote-block"> 
+            <ol>
+                <li>Were you able to complete the task? If not, what prevented you?</li>
+                <li>Would you like to see more, less, or the same information on the cards on the discovery screen? Which elements would you like to see added or removed?</li>
+                <li>What did the bookmark shaped icon below each profile indicate to you?</li>
+                <li>Think of the last time you were looking for a roommate. What information on the profiles would have been the most helpful for you?</li>
+                <li>How difficult was it for you to send a message to Amelia?</li>
+                <li>What do you think about the design of the app?</li>
+            </ol>
+        </div>
+        <div class="subsection">
+            <h3>Analyzing our Results</h3>
+        <p>Here’s the summary of our test results. You can also click on the below links to view the full testing video for each user:</p>
+        <ul>
+            <li>
+                <a
+                    href="https://app.usertesting.com/v/0a99577c-0604-497a-b18b-832938dc3e73?back=https%3A%2F%2Fapp.usertesting.com%2Fdashboard#!/notes"
+                    >User 1 Testing Video
+                </a>
+            </li>
+            <li>
+                <a
+                    href="https://app.usertesting.com/v/02b7f4b3-ec7d-4d90-8176-bdd043d10892?back=https%3A%2F%2Fapp.usertesting.com%2Fdashboard#!/notes&shared_via=link"
+                >User 2 Testing Video
+                </a>
+            </li>
+            <li>
+                <a
+                    href="https://app.usertesting.com/v/f5bdb4f6-6652-43ca-9888-b7b52afc5435?back=https%3A%2F%2Fapp.usertesting.com%2Fdashboard#!/notes&shared_via=link"
+                >User 3 Testing Video
+            </a>
+            </li>
+        </ul>
+
+        <b>Summary of Results</b>
+        <p>The main issues regarding user experience were that the pinning interaction was not responsive on mobile and ultimately confusing. One user additionally was unable to actually complete the task (i.e. when she was asked to sort by compatibility, she read aloud the order in which users would be listed if they were in order of compatibility; she did not use the “sort by” button to complete the task). Lastly, users also experienced issues with needing to scroll on their phones to see the entire screen (leading to issues seeing buttons if they were hidden at the bottom of a page).</p>
+
+        <p>Generally, users enjoyed the cleanliness of the design coupled with the fonts and colors chosen. They found the design to be simple and undistracting, and they understood the compatibility system without need for further explanation. Additionally, all three users believed that they were able to complete the task successfully and rated the easiness of the task as a ⅘.</p>
+        </div>
+        </div>
+        <div class="section">
+            <div class="subsection">
+                <h2>05. Reflection</h2>
+            <ol>
+                <li>We were able to turn our wireframes into an intuitive and functional prototype</li>
+                <li>We learned a lot from the studio critique and user tests, and the importance of the iterative design process.</li>
+                <li>In future iterations, we will adjust the scrolling issue to make each page more responsive to varying screen 
+                    sizes. Additionally, we will flush on other interactions such as archiving and deleting messages.
+                </li>
+            </ol>
+
+            </div>
+        </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
